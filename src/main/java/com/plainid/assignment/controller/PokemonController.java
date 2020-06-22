@@ -20,7 +20,6 @@ import java.util.List;
 public class PokemonController {
 
     private
-
     @Autowired
     JdbcTemplate jdbcTemplate;
 
