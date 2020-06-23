@@ -40,13 +40,13 @@ public class Trainer {
         this.name = name;
     }
 
-//    public List<Pokemon> getBag() {
-//        return bag;
-//    }
+    public Deque<Pokemon> getBag() {
+        return bag;
+    }
 //
-//    public void setBag(List<Pokemon> bag) {
-//        this.bag = bag;
-//    }
+    public void setBag(Deque<Pokemon> bag) {
+        this.bag = bag;
+    }
     public void add(Pokemon pokemon){
         if (!map.contains(pokemon)) {
             if (bag.size() == sizeBag) {

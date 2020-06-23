@@ -18,6 +18,7 @@ public class TrainerRawMapper implements RowMapper<Trainer> {
         pokemon.setName(resultSet.getString("PokemonName"));
         pokemon.setType(Enum.valueOf(PokemonType.class,resultSet.getString("TYPE")));
         trainer.add(pokemon);
+        trainer.setBag(trainer.getBag());
 
         return trainer;
 //        return null;
