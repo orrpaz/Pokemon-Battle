@@ -1,27 +1,31 @@
 package com.plainid.assignment.dao;
 
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import java.util.*;
 
+/**
+ * this class describe trainer
+ */
 public class Trainer {
-    int level;
+    static int sizeBag = 3;
     String name;
-//    List<Pokemon> bag;
-    int sizeBag = 3;
-    @ManyToMany
-    @JoinTable(name = "POKEMON_TRAINER",joinColumns = @JoinColumn(name = "TRAINER_ID"),
-            inverseJoinColumns = @JoinColumn(name = "POKEMON_ID"))
-    static Deque<Pokemon> bag;
-    static HashSet<Pokemon> map;
+    int level;
+    int id;
+    Queue<String> Bag;
+
 
     public Trainer(String name) {
-        this.level = 0;
         this.name = name;
-//        this.bag = new ArrayList<>();
-        bag = new LinkedList<>();
-        map = new HashSet<>();
+        this.level = 0;
+        this.Bag = new PriorityQueue<>(3);
+    }
+
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getLevel() {
@@ -32,41 +36,22 @@ public class Trainer {
         this.level = level;
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
-    public Deque<Pokemon> getBag() {
-        return bag;
-    }
 //
-    public void setBag(Deque<Pokemon> bag) {
-        this.bag = bag;
+//    public void setPokemonBag(Queue<Pokemon> pokemonBag) {
+//        this.pokemonBag = pokemonBag;
+//    }
+    public void addPokemon(Pokemon pokemon){
+//        pokemonBag.add(pokemon);
+        this.Bag.add(pokemon.getName());
     }
-    public void add(Pokemon pokemon){
-        if (!map.contains(pokemon)) {
-            if (bag.size() == sizeBag) {
-                Pokemon last = bag.removeLast();
-                map.remove(last);
-            }
-        }
-        else {
-            int index = 0, i = 0;
-            for (Pokemon value : bag) {
-                if (value == pokemon) {
-                    index = i;
-                    break;
-                }
-                i++;
-            }
-            bag.remove(index);
-        }
-        bag.push(pokemon);
-        map.add(pokemon);
+    public Queue<String> getBag() {
+        return this.Bag;
+    }
+
+    public void setBag(Queue<String> Bag) {
+        this.Bag = Bag;
     }
 }
 

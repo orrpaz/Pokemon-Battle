@@ -1,8 +1,10 @@
 package com.plainid.assignment.dao;
 
+/**
+ * Describe Battle result
+ */
 public class Battle {
     String status;
-
     String massage;
 
     public String getStatus() {
