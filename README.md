@@ -1,8 +1,11 @@
 # pokemon-bat
 
-The Story
+First of all, This Project is based on Spring Boot, and I use H2 SQL DB
+
+## The Story
 In our story, we have several objects - Pokemon, Trainer and Battle.
 we’ll go over them one by one:
+
 ## Pokemon
 The main object that we’ll use is called Pokemon.
 Each Pokemon has a name and a type. The type can be one of the following:
@@ -36,7 +39,6 @@ If Pokemons are from the same type it’s a tie, and each trainer gets 1 level p
 In the battle, every Pokemon in the bag will fight with the Pokemon in the same position on the
 other Trainer’s bag. The Trainer that most of his Pokemons won is the winner of the battle.
 
-This Project is based on Spring Boot, and I use H2 SQL DB
 
 I Also support API Call such as:
 
@@ -47,5 +49,7 @@ I Also support API Call such as:
 ● GET http://localhost:<port>/trainer/{trainer_name}/catch/{pokemon_name}
 
 ● GET http://localhost:<port>/trainers
+
+
 
 
